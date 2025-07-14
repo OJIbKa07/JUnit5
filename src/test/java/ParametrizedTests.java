@@ -17,7 +17,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ParametrizedTests extends TestBase {
-
+    PreparingTest preparingPages = new PreparingTest();
     @Tags({
             @Tag("SMOKE"),
             @Tag("WEB"),
@@ -27,7 +27,7 @@ public class ParametrizedTests extends TestBase {
     void amazonSiteShouldDisplayCorrectText(Language language) {
         open("/");
 
-        closePopupIfVisible();
+        preparingPages.closePopupIfVisible();
 
         $("button.nav-flyout-button").shouldBe(visible).click();
 
@@ -61,7 +61,7 @@ public class ParametrizedTests extends TestBase {
     @ParameterizedTest
     void amazonSiteShouldDisplayCorrectButtons(Language language, List<String> expectedButtons) {
         open("/");
-        closePopupIfVisible();
+        preparingPages.closePopupIfVisible();
 
         $("button.nav-flyout-button").shouldBe(visible).click();
 
@@ -84,7 +84,7 @@ public class ParametrizedTests extends TestBase {
     })
     void amazonSiteSuccesfullSearchTest(String searchQuery) {
         open("/");
-        closePopupIfVisible();
+        preparingPages.closePopupIfVisible();
         $("input#twotabsearchtextbox").setValue(searchQuery).pressEnter();
         $$("div.s-main-slot div[data-component-type='s-search-result']")
                 .shouldHave(sizeGreaterThan(0));
@@ -93,19 +93,7 @@ public class ParametrizedTests extends TestBase {
 
 
 
-    private void closePopupIfVisible() {
-        if ($("body").has(text("Continue shopping"))) {
-            $(byText("Continue shopping")).shouldBe(visible).click();
-        }
 
-        if ($("div.modal").isDisplayed()) {
-            $("div.modal button.close").click();
-        }
-
-        if ($(byText("No thanks")).exists()) {
-            $(byText("No thanks")).click();
-        }
-    }
 
 
 }
