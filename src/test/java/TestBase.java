@@ -13,7 +13,5 @@ public class TestBase {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://www.amazon.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.reopenBrowserOnFail = true;
-        Configuration.holdBrowserOpen = false;
     }
 }

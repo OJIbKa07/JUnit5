@@ -18,6 +18,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ParametrizedTests extends TestBase {
     PreparingTest preparingPages = new PreparingTest();
+
     @Tags({
             @Tag("SMOKE"),
             @Tag("WEB"),
@@ -26,18 +27,13 @@ public class ParametrizedTests extends TestBase {
     @ParameterizedTest
     void amazonSiteShouldDisplayCorrectText(Language language) {
         open("/");
-
         preparingPages.closePopupIfVisible();
-
         $("button.nav-flyout-button").shouldBe(visible).click();
-
         $("div#nav-flyout-icp").should(appear)
                 .$$(byText(language.name())).find(visible)
                 .shouldBe(enabled)
                 .click();
         $("#nav-link-accountList").shouldHave(text(language.description));;
-
-
     }
 
     static Stream<Arguments> amazonSiteShouldDisplayCorrectButtons() {
@@ -62,17 +58,13 @@ public class ParametrizedTests extends TestBase {
     void amazonSiteShouldDisplayCorrectButtons(Language language, List<String> expectedButtons) {
         open("/");
         preparingPages.closePopupIfVisible();
-
         $("button.nav-flyout-button").shouldBe(visible).click();
-
         $("div#nav-flyout-icp").should(appear)
                 .$$(byText(language.name())).find(visible)
                 .shouldBe(enabled)
                 .click();
-
         $$("#nav-xshop a").filter(visible).shouldHave(texts(expectedButtons));
     }
-
 
     @Tags({
             @Tag("SMOKE"),
