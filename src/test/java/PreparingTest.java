@@ -8,11 +8,9 @@ public class PreparingTest {
         if ($("body").has(text("Continue shopping"))) {
             $(byText("Continue shopping")).shouldBe(visible).click();
         }
-
         if ($("div.modal").isDisplayed()) {
             $("div.modal button.close").click();
         }
-
         if ($(byText("No thanks")).exists()) {
             $(byText("No thanks")).click();
         }

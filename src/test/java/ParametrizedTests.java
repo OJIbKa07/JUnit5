@@ -82,10 +82,4 @@ public class ParametrizedTests extends TestBase {
                 .shouldHave(sizeGreaterThan(0));
 
     }
-
-
-
-
-
-
 }
