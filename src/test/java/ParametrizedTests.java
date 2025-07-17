@@ -33,7 +33,7 @@ public class ParametrizedTests extends TestBase {
                 .$$(byText(language.name())).find(visible)
                 .shouldBe(enabled)
                 .click();
-        $("#nav-link-accountList").shouldHave(text(language.description));;
+        $("#nav-link-accountList").shouldHave(text(language.description));
     }
 
     static Stream<Arguments> amazonSiteShouldDisplayCorrectButtons() {
