@@ -1,0 +1,16 @@
+{
+  "base": {
+    "project": "JUnit 5",
+    "environment": "TFI",
+    "comment": "Everyday task",
+    "reportLink": "",
+    "language": "ru",
+    "allureFolder": "",
+    "enableChart": false
+  },
+  "telegram": {
+    "token": "8449859667:AAEefnUa6qxxqzBc8IE7wvxxgEjkmRTEQAQ",
+    "chat": "-1002527334715",
+    "replyTo": "@Ogr1407"
+  }
+}
