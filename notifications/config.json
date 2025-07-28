@@ -5,7 +5,7 @@
     "comment": "Everyday task",
     "reportLink": "https://jenkins.autotests.cloud/job/c36-oPalushina-qa_quru-notificationBot/1/",
     "language": "ru",
-    "allureFolder": "",
+    "allureFolder": "allure-report",
     "enableChart": false
   },
   "telegram": {
