@@ -1,4 +1,8 @@
+import com.codeborne.selenide.logevents.SelenideLogger;
 import data.Language;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -6,7 +10,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
-
+import helpers.Attach;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -18,6 +22,19 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ParametrizedTests extends TestBase {
     PreparingTest preparingPages = new PreparingTest();
+
+    @AfterEach
+    void addAttachments() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
+    }
+
+    @BeforeEach
+    void addListener() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
 
     @Tags({
             @Tag("SMOKE"),
