@@ -3,10 +3,10 @@
     "project": "JUnit 5",
     "environment": "TFI",
     "comment": "Everyday task",
-    "reportLink": "https://jenkins.autotests.cloud/job/c36-oPalushina-qa_quru-notificationBot/1/",
+    "reportLink": "https://jenkins.autotests.cloud/job/c36-oPalushina-qa_quru-notificationBot/7/",
     "language": "ru",
     "allureFolder": "allure-report",
-    "enableChart": false
+    "enableChart": true
   },
   "telegram": {
     "token": "8449859667:AAEefnUa6qxxqzBc8IE7wvxxgEjkmRTEQAQ",
